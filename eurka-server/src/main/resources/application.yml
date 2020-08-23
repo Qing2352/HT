@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: fuwu
+
+  datasource:
+    username: root
+    password: 123@qwe
+    url: jdbc:mysql://localhost:3306/xml_test?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #不向Eureka注册自己
+    register-with-eureka: false
+    #不检查其他的EurekaServer节点
+    fetch-registry: false
+    service-url:
+      #设置eureka服务器所在的地址，查询服务和注册服务程序都注册到这个地址(服务暴露的地址)
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
